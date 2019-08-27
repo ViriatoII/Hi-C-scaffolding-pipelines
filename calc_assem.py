@@ -52,7 +52,7 @@ print "Contigs: %s" % len(lengths)
 
 ## sort contigs longest>shortest
 all_len = numpy.array( sorted(lengths, reverse=True) )  # sorted lengths ; numpy.array is faster
-csum = numpy.cumsum(all_len)
+csum = numpy.cumsum(all_len) 
 
 
 ## Count contigs > threshhold
