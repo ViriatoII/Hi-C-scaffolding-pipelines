@@ -36,3 +36,4 @@ run_BUSCO.py -c 24 --in $INPUT --out BUSCO_results \
 
 wait
 
+
