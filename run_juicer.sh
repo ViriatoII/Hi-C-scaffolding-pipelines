@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 JUICERDIR="/your_W_DIR/scaffolding/juicer/00_juicer" 
 VIZ_DIR="/your_W_DIR/scaffolding/juicer/01_3D-DNA/visualize/visualizations" 
 
@@ -21,8 +20,7 @@ ENZYME=$3
 
 ASSEMDIR="$(dirname $ASSEMBLY)"
 
-
-cd $JUICERDIR
+cd $JUICERDIR ; mkdir projects
 
 ############### Preparation  #############################
 
@@ -55,23 +53,16 @@ cd ..
 
 ########   Running Juicer ###########
 
-
 scripts/juicer.sh -S early -p references/$PROJECT_NAME\_ChrIDs.txt -g $PROJECT_NAME -x \
         -d $JUICERDIR/projects/$PROJECT_NAME \
         -z $ASSEMBLY  \
         -y restriction_sites/$PROJECT_NAME\_$ENZYME\.txt
 
-
-
 ######################################################## 3d-dna visualize #############################
-
 
 module load SamTools/1.6 Python/2.7.5 Java/11.0.2 Parallel/20150422
 
-
-cd $VIZ_DIR
-
-mkdir $PROJECT_NAME
+cd $VIZ_DIR ; mkdir $PROJECT_NAME
 
 cd $PROJECT_NAME; ln -s ../../../../00_juicer/projects/$PROJECT_NAME/aligned/merged_nodups.txt
 
@@ -81,5 +72,4 @@ awk -f ../../../utils/generate-assembly-file-from-fasta.awk $ASSEMBLY > $PROJECT
 
 ### Create heatmaps    # needs merged_nodups from juicer 
  ../../run-assembly-visualizer.sh $PROJECT_NAME\.assembly merged_nodups.txt
-
-
+ 
