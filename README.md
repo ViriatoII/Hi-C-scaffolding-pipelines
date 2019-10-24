@@ -9,6 +9,6 @@ You need to edit the following variables with your own directory of juicer and 3
 `VIZ_DIR="/../scaffolding/juicer/01_3D-DNA/visualize/visualizations"              `        
 
 
-You can scaffold the resulting Juicer project with 3D-DNA. Use:
+You can scaffold the resulting Juicer project with 3D-DNA. Use:        
 `run_3d-dna.sh < project name >`
   
